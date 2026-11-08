@@ -1,0 +1,9 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  nx: true
+# Astro's prerender bundle imports some runtime deps by bare name; hoist them so
+# Node doesn't fall back to unrelated copies in parent directories (e.g. ~/node_modules).
+publicHoistPattern:
+  - cookie

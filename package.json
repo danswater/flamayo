@@ -1,0 +1,13 @@
+{
+  "name": "flamayo",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nx run web:dev",
+    "build": "nx run-many -t build",
+    "preview": "nx run web:preview"
+  },
+  "devDependencies": {
+    "nx": "^24.0.5"
+  }
+}
