@@ -1,4 +1,15 @@
 ---
+const pageTitle = "About Me";
+const identity = {
+  firstName: "Francis",
+  country: "Philippines",
+  occupation: "Software Engineer",
+  hobbies: ["reading", "coding", "traveling"],
+};
+const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express"];
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -13,10 +24,29 @@
 	<body>
         <a href="/">Home</a>
         <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
 
-		<h1>About Me</h1>
+		<h1>{pageTitle}</h1>
         <p>I build front-end architectures that bridge the gap between design and durability.</p>
         <p>While I’m rooted in UI and web standards, I look past the pixels to the logic that powers them.</p>
         <p>I specialize in making high-stakes trade-offs—choosing the right patterns today to prevent technical debt tomorrow. I believe that a truly modern application isn't just fast to load; it's easy to evolve.</p>
+
+        <p>Here are a few facts about me:</p>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+            {identity.hobbies.length >= 2 &&
+              <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+            }
+          </ul>
+          <p>My skills are:</p>
+          <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+          </ul>
+          {happy && <p>I am happy to be learning Astro!</p>}
+
+          {finished && <p>I finished this tutorial!</p>}
+
+          {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 	</body>
 </html>
