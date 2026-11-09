@@ -1,52 +1,86 @@
 ---
-const pageTitle = "About Me";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 const identity = {
   firstName: "Francis",
   country: "Philippines",
   occupation: "Software Engineer",
   hobbies: ["reading", "coding", "traveling"],
 };
-const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express"];
-const happy = true;
-const finished = false;
-const goal = 3;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+<BaseLayout title="About Me">
+  <article class="about-page">
+    <header class="about-header">
+      <h1 class="page-title">About Me</h1>
+      <p class="page-subtitle">
+        {identity.occupation} based in the {identity.country}.
+      </p>
+    </header>
 
-		<h1>{pageTitle}</h1>
-        <p>I build front-end architectures that bridge the gap between design and durability.</p>
-        <p>While I’m rooted in UI and web standards, I look past the pixels to the logic that powers them.</p>
-        <p>I specialize in making high-stakes trade-offs—choosing the right patterns today to prevent technical debt tomorrow. I believe that a truly modern application isn't just fast to load; it's easy to evolve.</p>
+    <div class="about-content">
+      <p>
+        I build full-stack systems that turn product intent into reliable,
+        intelligent software.
+      </p>
+      <p>
+        I work across interfaces, APIs, data, and AI-powered workflows that
+        connects user experience to the services, models, and systems that make
+        it work.
+      </p>
+      <p>
+        I specialize in making thoughtful trade-offs: choosing the right
+        architecture and patterns today to ship value now while keeping the
+        system secure, observable, and easy to evolve. I believe a modern
+        application isn’t just fast to load; it’s designed to adapt, scale, and
+        improve as both the product and the technology around it change.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
 
-        <p>Here are a few facts about me:</p>
-        <ul>
-            <li>My name is {identity.firstName}.</li>
-            <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-            {identity.hobbies.length >= 2 &&
-              <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-            }
-          </ul>
-          <p>My skills are:</p>
-          <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
-          </ul>
-          {happy && <p>I am happy to be learning Astro!</p>}
+<style>
+  .about-page {
+    padding-top: 1rem;
+  }
 
-          {finished && <p>I finished this tutorial!</p>}
+  .about-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
 
-          {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-	</body>
-</html>
+  .page-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.25rem;
+  }
+
+  .page-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .about-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .manifesto-quote {
+    margin: 1.75rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-surface);
+    border-radius: 0 8px 8px 0;
+    font-style: normal;
+  }
+
+  .manifesto-author {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+  }
+</style>
